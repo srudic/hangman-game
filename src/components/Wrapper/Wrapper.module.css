@@ -1,0 +1,5 @@
+.Wrapper {
+  background-color: gray;
+  min-height: 100vh;
+  display: flex;
+}
