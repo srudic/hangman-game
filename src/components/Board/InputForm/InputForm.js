@@ -2,14 +2,16 @@ import style from "./InputForm.module.css";
 
 const test = "guitar";
 
-const InputForm = () => {
+const InputForm = ({ requiredWord }) => {
   return (
     <div className={style.InputForm}>
-      {test
+      {requiredWord
         .toUpperCase()
         .split("")
         .map((item, index) => (
-          <div className={style.Element}>{item}</div>
+          <div className={style.Element} key={index}>
+            {item}
+          </div>
         ))}
     </div>
   );
