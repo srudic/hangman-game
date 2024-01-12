@@ -1,7 +1,5 @@
 import style from "./InputForm.module.css";
 
-const test = "guitar";
-
 const InputForm = ({ requiredWord }) => {
   return (
     <div className={style.InputForm}>

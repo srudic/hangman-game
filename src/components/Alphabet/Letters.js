@@ -1,39 +1,36 @@
+import { useState } from "react";
 import style from "./Letters.module.css";
 
-const alphabet = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
+const alpha = Array.from(Array(26)).map((e, i) => i + 97);
+const alphabet = alpha.map((x) => String.fromCharCode(x));
 
-const Letters = () => {
+const Letter = ({ letter, onLetterClicked }) => {
+  const [clicked, setClicked] = useState(false);
+
+  // console.log(clicked ? letter : "ne");
+  // const clickedLetter = clicked ? letter : "";
+
+  return (
+    <div
+      // className={clicked ? style.LetterClicked : style.Frame}
+      className={style.Frame}
+      // onClick={() => setClicked(true)}
+      onClick={() => onLetterClicked(letter)}
+    >
+      {letter.toUpperCase()}
+    </div>
+  );
+};
+
+const Letters = ({ onLetterClicked }) => {
   return (
     <div className={style.Alphabet}>
       {alphabet.map((letter) => (
-        <div className={style.Frame}>{letter}</div>
+        <Letter
+          letter={letter}
+          key={letter}
+          onLetterClicked={onLetterClicked}
+        />
       ))}
     </div>
   );
