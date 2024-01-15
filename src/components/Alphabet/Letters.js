@@ -1,21 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./Letters.module.css";
 
+// Fill array with ascii code for lower case
 const alpha = Array.from(Array(26)).map((e, i) => i + 97);
+// Transform ascii code into characters
 const alphabet = alpha.map((x) => String.fromCharCode(x));
 
 const Letter = ({ letter, onLetterClicked }) => {
   const [clicked, setClicked] = useState(false);
 
-  // console.log(clicked ? letter : "ne");
-  // const clickedLetter = clicked ? letter : "";
-
   return (
     <div
-      // className={clicked ? style.LetterClicked : style.Frame}
-      className={style.Frame}
-      // onClick={() => setClicked(true)}
-      onClick={() => onLetterClicked(letter)}
+      className={clicked ? style.LetterClicked : style.Frame}
+      onClick={() => {
+        onLetterClicked(letter);
+        setClicked(true);
+      }}
     >
       {letter.toUpperCase()}
     </div>

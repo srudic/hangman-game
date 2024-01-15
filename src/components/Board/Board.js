@@ -7,11 +7,11 @@ import style from "./Board.module.css";
       Multiply it by the array length to get the numbers between(0-arrayLength).
       “Math.floor()” to get the index ranging from(0 to arrayLength-1). */
 
-const Board = ({ requiredTerm }) => {
+const Board = ({ requiredWord, requiredHint }) => {
   return (
     <div className={style.Board}>
-      <InputForm requiredWord={requiredTerm.word} />
-      <Hint requiredHint={requiredTerm.hint} />
+      <InputForm requiredWord={requiredWord} />
+      <Hint requiredHint={requiredHint} />
     </div>
   );
 };
