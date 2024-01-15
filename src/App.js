@@ -52,7 +52,11 @@ function App() {
     <div className="App">
       <Wrapper>
         <Letters onLetterClicked={locations} />
-        <Board requiredHint={hint} requiredWord={displayedWord} />
+        <Board
+          requiredHint={hint}
+          requiredWord={displayedWord}
+          numberOfAttempts={counter}
+        />
       </Wrapper>
     </div>
   );
