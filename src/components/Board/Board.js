@@ -12,8 +12,14 @@ const Board = ({ requiredWord, requiredHint, numberOfAttempts }) => {
     <div className={style.Board}>
       {
         // Check if number of attempts is greater than zero --> show Hangman icon (depending on the number of wrong letter inputs)
-        numberOfAttempts > 0 ? (
+        numberOfAttempts > 0 && numberOfAttempts < 8 ? (
           <HangmanIcon numberOfAttempts={numberOfAttempts} />
+        ) : null
+      }
+      {
+        // Check if number of attempts is greater than 7 ---> GAME OVER
+        numberOfAttempts >= 7 ? (
+          <div className={style.GameOver}>Game Over</div>
         ) : null
       }
       <InputForm requiredWord={requiredWord} />

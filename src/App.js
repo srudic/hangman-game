@@ -45,9 +45,6 @@ function App() {
     return index;
   };
 
-  console.log(counter);
-  console.log(isLetterCorrect);
-
   return (
     <div className="App">
       <Wrapper>
