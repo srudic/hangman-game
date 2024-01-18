@@ -6,8 +6,12 @@ const alpha = Array.from(Array(26)).map((e, i) => i + 97);
 // Transform ascii code into characters
 const alphabet = alpha.map((x) => String.fromCharCode(x));
 
-const Letter = ({ letter, onLetterClicked }) => {
+const Letter = ({ letter, onLetterClicked, reset }) => {
   const [clicked, setClicked] = useState(false);
+
+  useEffect(() => {
+    setClicked(false);
+  }, [reset]);
 
   return (
     <div
@@ -22,7 +26,7 @@ const Letter = ({ letter, onLetterClicked }) => {
   );
 };
 
-const Letters = ({ onLetterClicked }) => {
+const Letters = ({ onLetterClicked, reset }) => {
   return (
     <div className={style.Alphabet}>
       {alphabet.map((letter) => (
@@ -30,6 +34,7 @@ const Letters = ({ onLetterClicked }) => {
           letter={letter}
           key={letter}
           onLetterClicked={onLetterClicked}
+          reset={reset}
         />
       ))}
     </div>

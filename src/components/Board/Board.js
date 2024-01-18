@@ -8,7 +8,12 @@ import GameOver from "../GameOver/GameOver";
       Multiply it by the array length to get the numbers between(0-arrayLength).
       “Math.floor()” to get the index ranging from(0 to arrayLength-1). */
 
-const Board = ({ requiredWord, requiredHint, numberOfAttempts }) => {
+const Board = ({
+  requiredWord,
+  requiredHint,
+  numberOfAttempts,
+  onPlayAgainClicked,
+}) => {
   return (
     <div className={style.Board}>
       {
@@ -19,7 +24,9 @@ const Board = ({ requiredWord, requiredHint, numberOfAttempts }) => {
       }
       {
         // Check if number of attempts is greater than 7 ---> GAME OVER
-        numberOfAttempts >= 7 ? <GameOver /> : null
+        numberOfAttempts >= 7 ? (
+          <GameOver onPlayAgainClicked={onPlayAgainClicked} />
+        ) : null
       }
       <InputForm requiredWord={requiredWord} />
       <Hint requiredHint={requiredHint} />
