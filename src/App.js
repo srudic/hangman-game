@@ -1,16 +1,22 @@
 import "./App.css";
-import Wrapper from "./components/Wrapper/Wrapper";
+import Wrapper from "./components/UI/Wrapper/Wrapper";
 import Letters from "./components/Alphabet/Letters";
 import Board from "./components/Board/Board";
 import { WORD_LIST } from "../src/assets/hangman-game-word-list";
 import { useState } from "react";
 
+const wordPicker = () => {
+  const word = WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)];
+  return word;
+};
+
 function App() {
-  const requiredTerm = WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)];
-  const [word] = useState(requiredTerm.word);
-  const [hint] = useState(requiredTerm.hint);
+  const requiredTerm = wordPicker();
+  const [word, setWord] = useState(requiredTerm.word);
+  const [hint, setHint] = useState(requiredTerm.hint);
   const [counter, setCounter] = useState(0);
-  const [isLetterCorrect, setIsLetterCorrect] = useState(true);
+  const [reset, setReset] = useState(false);
+
   const [displayedWord, setDisplayedWord] = useState(
     new Array(word.length).fill("$")
   );
@@ -22,10 +28,8 @@ function App() {
     let i = -1;
 
     // Check if clicked letter is wrong ---> indexOf return -1 if a given element can't be found in the array
-    const newStateofLetter = false;
     if (word.indexOf(letter) === -1) {
       console.log("Krivo Slovo");
-      setIsLetterCorrect(newStateofLetter);
       // Count how many times clicked letters are wrong
       setCounter((count) => count + 1);
     }
@@ -45,14 +49,24 @@ function App() {
     return index;
   };
 
+  const onReset = () => {
+    const requiredTerm = wordPicker();
+    setWord(requiredTerm.word);
+    setHint(requiredTerm.hint);
+    setCounter(0);
+    setDisplayedWord(new Array(word.length).fill("$"));
+    setReset(!reset);
+  };
+
   return (
     <div className="App">
       <Wrapper>
-        <Letters onLetterClicked={locations} />
+        <Letters onLetterClicked={locations} reset={reset} />
         <Board
           requiredHint={hint}
           requiredWord={displayedWord}
           numberOfAttempts={counter}
+          onPlayAgainClicked={onReset}
         />
       </Wrapper>
     </div>

@@ -1,0 +1,13 @@
+.PlayAgain {
+  color: #7794ff;
+  text-transform: uppercase;
+  font-size: 1.5vw;
+  background-color: #38383a;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.PlayAgain:hover {
+  cursor: pointer;
+  color: #a4b8ff;
+}
