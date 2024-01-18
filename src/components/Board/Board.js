@@ -2,6 +2,7 @@ import InputForm from "./InputForm/InputForm";
 import Hint from "./Hint/Hint";
 import HangmanIcon from "./HangmanIcon/HangmanIcon";
 import style from "./Board.module.css";
+import GameOver from "../GameOver/GameOver";
 
 /* “Math.random()” function to get the random number between(0-1, 1 exclusive). 
       Multiply it by the array length to get the numbers between(0-arrayLength).
@@ -18,9 +19,7 @@ const Board = ({ requiredWord, requiredHint, numberOfAttempts }) => {
       }
       {
         // Check if number of attempts is greater than 7 ---> GAME OVER
-        numberOfAttempts >= 7 ? (
-          <div className={style.GameOver}>Game Over</div>
-        ) : null
+        numberOfAttempts >= 7 ? <GameOver /> : null
       }
       <InputForm requiredWord={requiredWord} />
       <Hint requiredHint={requiredHint} />
