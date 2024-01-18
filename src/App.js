@@ -1,5 +1,5 @@
 import "./App.css";
-import Wrapper from "./components/Wrapper/Wrapper";
+import Wrapper from "./components/UI/Wrapper/Wrapper";
 import Letters from "./components/Alphabet/Letters";
 import Board from "./components/Board/Board";
 import { WORD_LIST } from "../src/assets/hangman-game-word-list";
