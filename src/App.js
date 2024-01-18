@@ -20,8 +20,8 @@ function App() {
   const [displayedWord, setDisplayedWord] = useState(
     new Array(word.length).fill("$")
   );
-  console.log(word);
-
+  console.log("Trazena rijec", word.toUpperCase());
+  console.log("Hint", hint);
   // Function to find the index of the letter that is clicked in the required word
   const locations = (letter) => {
     let index = [];
@@ -49,13 +49,14 @@ function App() {
     return index;
   };
 
+  // Function to reset all states
   const onReset = () => {
     const requiredTerm = wordPicker();
     setWord(requiredTerm.word);
     setHint(requiredTerm.hint);
     setCounter(0);
-    setDisplayedWord(new Array(word.length).fill("$"));
-    setReset(!reset);
+    setDisplayedWord(new Array(requiredTerm.word.length).fill("$"));
+    setReset(true);
   };
 
   return (
