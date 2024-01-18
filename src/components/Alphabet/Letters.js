@@ -9,6 +9,7 @@ const alphabet = alpha.map((x) => String.fromCharCode(x));
 const Letter = ({ letter, onLetterClicked, reset }) => {
   const [clicked, setClicked] = useState(false);
 
+  // On change reset state (when it is true) set clicked state to false
   useEffect(() => {
     setClicked(false);
   }, [reset]);
