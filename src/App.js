@@ -3,7 +3,8 @@ import Wrapper from "./components/UI/Wrapper/Wrapper";
 import Letters from "./components/Alphabet/Letters";
 import Board from "./components/Board/Board";
 import { WORD_LIST } from "../src/assets/hangman-game-word-list";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Victory from "./components/Victory/Victory";
 
 const wordPicker = () => {
   const word = WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)];
@@ -16,6 +17,7 @@ function App() {
   const [hint, setHint] = useState(requiredTerm.hint);
   const [counter, setCounter] = useState(0);
   const [reset, setReset] = useState(false);
+  const [victory, setVictory] = useState(false);
 
   const [displayedWord, setDisplayedWord] = useState(
     new Array(word.length).fill("$")
@@ -49,6 +51,12 @@ function App() {
     return index;
   };
 
+  useEffect(() => {
+    if (displayedWord.indexOf("$") === -1) {
+      setVictory(true);
+    }
+  }, [displayedWord]);
+
   // Function to reset all states
   const onReset = () => {
     const requiredTerm = wordPicker();
@@ -57,6 +65,7 @@ function App() {
     setCounter(0);
     setDisplayedWord(new Array(requiredTerm.word.length).fill("$"));
     setReset(true);
+    setVictory(false);
   };
 
   return (
@@ -69,6 +78,7 @@ function App() {
           numberOfAttempts={counter}
           onPlayAgainClicked={onReset}
         />
+        {victory && <Victory onPlayAgainClicked={onReset} />}
       </Wrapper>
     </div>
   );
