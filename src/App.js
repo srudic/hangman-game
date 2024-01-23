@@ -57,6 +57,12 @@ function App() {
     }
   }, [displayedWord]);
 
+  useEffect(() => {
+    if (reset) {
+      setReset(false);
+    }
+  }, [reset]);
+
   // Function to reset all states
   const onReset = () => {
     const requiredTerm = wordPicker();
