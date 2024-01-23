@@ -11,7 +11,7 @@ const Letter = ({ letter, onLetterClicked, reset }) => {
 
   // On change reset state (when it is true) set clicked state to false
   useEffect(() => {
-    setClicked(false);
+    if (reset) setClicked(false);
   }, [reset]);
 
   return (
