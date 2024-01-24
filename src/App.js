@@ -1,4 +1,5 @@
 import "./App.css";
+import { Helmet } from "react-helmet";
 import Wrapper from "./components/UI/Wrapper/Wrapper";
 import Letters from "./components/Alphabet/Letters";
 import Board from "./components/Board/Board";
@@ -76,6 +77,15 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>Hangman Game</title>
+        <meta
+          name="description"
+          content="The Hangman Game is a classic word-guessing game where players try to guess a hidden word by suggesting letters."
+        />
+        <meta name="keywords" content="hangman, word, hint, game" />
+        <meta name="author" content="https://github.com/srudic" />
+      </Helmet>
       <Wrapper>
         <Letters onLetterClicked={locations} reset={reset} />
         <Board
