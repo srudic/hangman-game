@@ -87,13 +87,14 @@ function App() {
         <meta name="author" content="https://github.com/srudic" />
       </Helmet>
       <Wrapper>
-        <Letters onLetterClicked={locations} reset={reset} />
+        {/* Change order Letters - Board to Board - Letters*/}
         <Board
           requiredHint={hint}
           requiredWord={displayedWord}
           numberOfAttempts={counter}
           onPlayAgainClicked={onReset}
         />
+        <Letters onLetterClicked={locations} reset={reset} />
         {victory && <Victory onPlayAgainClicked={onReset} />}
       </Wrapper>
     </div>
