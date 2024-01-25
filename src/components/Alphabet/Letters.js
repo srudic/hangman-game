@@ -8,15 +8,18 @@ const alphabet = alpha.map((x) => String.fromCharCode(x));
 
 const Letter = ({ letter, onLetterClicked, reset }) => {
   const [clicked, setClicked] = useState(false);
+  let letterClasses = style.Frame;
 
   // On change reset state (when it is true) set clicked state to false
   useEffect(() => {
     if (reset) setClicked(false);
   }, [reset]);
 
+  if (clicked) letterClasses = [style.LetterClicked, style.Frame].join(" ");
+
   return (
     <div
-      className={clicked ? style.LetterClicked : style.Frame}
+      className={letterClasses}
       onClick={() => {
         onLetterClicked(letter);
         setClicked(true);
