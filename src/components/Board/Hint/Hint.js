@@ -1,9 +1,9 @@
 import style from "./Hint.module.css";
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import { AiOutlineBulb } from "react-icons/ai";
-const Hint = ({ requiredHint }) => {
+const Hint = ({ requiredHint, handleHintClose }) => {
   return (
-    <Backdrop show>
+    <Backdrop show handleHintClose={handleHintClose}>
       <div className={style.HintContainer}>
         <div className={style.HintText}>
           <div className={style.HintTitleContainer}>

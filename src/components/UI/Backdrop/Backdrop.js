@@ -2,7 +2,9 @@ import style from "./Backdrop.module.css";
 
 const Backdrop = (props) => {
   return props.show ? (
-    <div className={style.Backdrop}>{props.children}</div>
+    <div className={style.Backdrop} onClick={props.handleHintClose}>
+      {props.children}
+    </div>
   ) : null;
 };
 
