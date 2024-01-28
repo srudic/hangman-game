@@ -1,6 +1,12 @@
 .VicoryTitle {
   color: goldenrod;
-  font-size: 7vw;
+  font-size: 2.5rem;
   font-weight: 900;
   cursor: default;
+}
+
+@media (min-width: 768px) {
+  .Letter {
+    font-size: 7vh;
+  }
 }

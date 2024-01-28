@@ -4,10 +4,24 @@
   align-items: center;
   justify-content: center;
 }
+
 .Element {
-  margin-right: 1rem;
-  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  padding: 1% 2%;
   border-bottom: 2px solid white;
-  font-size: x-large;
+  font-size: 1rem;
   color: white;
+  text-transform: uppercase;
+}
+
+.Element:last-child {
+  margin-right: 0;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+  .Element {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
 }

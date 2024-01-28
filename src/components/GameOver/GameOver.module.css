@@ -1,16 +1,11 @@
 .GameOver {
-  /* animation: shake 0.5s; */
-
-  /* When the animation is finished, start again */
-  /* animation-iteration-count: infinite; */
-
   color: white;
   display: flex;
 }
 
 .Letter {
   margin: 0 1vw;
-  font-size: 7vw;
+  font-size: 2.5rem;
   font-weight: 900;
   text-decoration: none;
   color: white;
@@ -41,5 +36,11 @@
   }
   100% {
     transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .Letter {
+    font-size: 7vh;
   }
 }

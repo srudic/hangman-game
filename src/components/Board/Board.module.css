@@ -1,5 +1,13 @@
 .Board {
   width: 100%;
   margin-top: auto;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
+}
+
+.Header {
+  position: fixed;
+  top: 0;
+  right: 10%;
+  padding: 1.2rem;
+  color: white;
 }

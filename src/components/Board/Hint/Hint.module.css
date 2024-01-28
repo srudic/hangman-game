@@ -1,4 +1,59 @@
-.Hint {
-  margin: 1rem 0;
-  color: rgb(206, 206, 206);
+.HintContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  padding: 2rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem; /* 8px / 16 */
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.HintText {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.HintTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.BulbIcon {
+  font-size: 1.5rem; /* 24px / 16 */
+  color: #f39c12;
+}
+
+.HintTitle {
+  font-weight: bold;
+  color: #333;
+  margin-left: 0.2rem;
+}
+
+@media (max-width: 31.25rem) {
+  /* 500px / 16 */
+  .HintContainer {
+    max-width: 90%;
+  }
+}
+
+.HintIcon {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #ffeb3b;
+
+  /* Mobile-first styles */
+  @media (min-width: 48rem) {
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+  }
 }
